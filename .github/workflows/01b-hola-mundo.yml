@@ -1,0 +1,10 @@
+name: 01b Hola Mundo
+on:
+  push
+jobs:
+  hola-mundo:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:   
+    - name: Hola Mundo
+      run: echo "Hola Mundo"
