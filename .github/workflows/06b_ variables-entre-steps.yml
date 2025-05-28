@@ -1,4 +1,4 @@
-name: 06a - variables y secretos
+name: 06b - variables entre steps
 on:
     push:
        branches: ["main"] 
