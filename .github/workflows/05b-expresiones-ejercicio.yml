@@ -1,0 +1,14 @@
+name: 05b expresiones ejercicio
+on: 
+    push:
+       branches: ["main"] 
+    workflow_dispatch:    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:   
+        - name: Info SO y arquitectura
+          run: |
+            echo "Sistema Operativo: ${{ runner.os}}" 
+            echo "Arquitectura del SO: ${{ runner.arch }}"
+       
