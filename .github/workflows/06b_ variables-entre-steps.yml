@@ -1,0 +1,14 @@
+name: 06a - variables y secretos
+on:
+    push:
+       branches: ["main"] 
+    workflow_dispatch:    
+jobs:
+  tirada-dados: 
+    runs-on: ubuntu-latest
+    steps:   
+        - name: Genera número aleario
+          run: echo "NUM_ALEATORIO=$((1+RANDOM % 6))" >> "GITHUB_ENV" # setar una variable 
+        - name: Leer resultado
+          run: | 
+            echo "El valor del dado es: ${{ env.NUM_ALEATORIO}}"
