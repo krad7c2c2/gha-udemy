@@ -1,0 +1,18 @@
+name: 04b instalar paquetes
+on: 
+    push:
+       branches: ["main"] 
+    workflow_dispatch:    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:   
+        - uses: actions/checkout@v4
+        - name: Check node version
+          run: node --version
+        - name: Install jsonlint
+          run: |
+            sudo app-get update
+            sudo app-get install jsonlint
+        - name: Lint json
+          run: jsonlint-php package.json 
