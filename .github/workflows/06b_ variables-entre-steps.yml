@@ -1,14 +1,18 @@
 name: 06b - variables entre steps
 on:
-    push:
-       branches: ["main"] 
-    workflow_dispatch:    
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
 jobs:
-  tirada-dados: 
+  tirada-dados:
     runs-on: ubuntu-latest
-    steps:   
-        - name: Genera número aleario
-          run: echo "NUM_ALEATORIO=$((1+RANDOM % 6))" >> "GITHUB_ENV" # setar una variable 
-        - name: Leer resultado
-          run: | 
-            echo "El valor del dado es: ${{ env.NUM_ALEATORIO}}"
+    steps:
+      - name: Genera número aleatorio
+        run: |
+          NUM=$((1 + RANDOM % 6))
+          echo "NUM_ALEATORIO=$NUM" >> $GITHUB_ENV
+
+      - name: Leer resultado
+        run: |
+          echo "El valor del dado es: $NUM_ALEATORIO"
