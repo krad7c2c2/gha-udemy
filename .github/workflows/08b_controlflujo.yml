@@ -7,7 +7,7 @@ jobs:
   build:
     strategy:
       matrix:
-        version: [18, 20]
+        version: [18, 20]  # matriz de versiones de node
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -19,7 +19,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - name: Forzar fallo
-        run: exit 1
+        run: echo "no Forzar fallo"
       - name: Todo OK
         if: ${{ success() }}
         run: echo "Se ve si pasos anteriores han ido OK"
