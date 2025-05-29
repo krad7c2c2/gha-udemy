@@ -1,0 +1,32 @@
+name: 07a EntradaySalida
+on:
+  workflow_dispatch:
+    inputs:
+      numero-dados:
+        type: choice
+        options:
+          - uno
+          - dos
+        default: dos
+        description: El número de dados
+
+jobs:
+  tirada-dados:
+    outputs:
+      dado1: ${{ steps.dado1.outputs.dado1 }}
+      dado2: ${{ steps.dado2.outputs.dado2 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: ¿Cuantos dados?
+        run: echo "Hay ${{inputs.numero-dados}} dados"
+      - name: Generar dado 1
+        id: dado1
+        run: |
+          NUM=$((1 + RANDOM % 6))
+          echo "NUM_ALEATORIO=$NUM" >> $GITHUB_OUTPUT
+      - name: Generar dado 2
+        id: dado2
+        run: |
+          NUM=$((1 + RANDOM % 6))
+          echo "NUM_ALEATORIO=$NUM" >> $GITHUB_OUTPUT
+
