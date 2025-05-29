@@ -19,7 +19,8 @@ jobs:
       - run: npm ci
       - run: npm test
       - name: Forzar fallo
-        run: echo "no Forzar fallo"
+        #run: echo "no Forzar fallo"
+        run: exit 1
       - name: Todo OK
         if: ${{ success() }}
         run: echo "Se ve si pasos anteriores han ido OK"
