@@ -10,7 +10,7 @@ jobs:
       matrix:
         os: [ubuntu-22.04, ubuntu-20.04]
         version: [18, 20]
-        exclude:
+        exclude: #excluye un valor de la matriz
         - os: ubuntu-22.04
           version: 20
     runs-on: ${{ matrix.os }}
@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.version }}
-      - if: matrix.os == 'ubuntu-22.04' && matrix.version == 20
+      - if: matrix.os == 'ubuntu-22.04' && matrix.version == 20    #si la matriz es ubuntu-22.04 y la version es 20, ejecuta el siguiente comando
         run: exit 1
         continue-on-error: true
       - run: npm ci
